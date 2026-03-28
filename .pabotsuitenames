@@ -1,0 +1,6 @@
+datasources:6e62a7700220fc574331cb1d9e0dbcfe62797d8d
+commandlineoptions:0d6d212533a3801a6b07b24cf6653fd7d4fea2e8
+suitesfrom:no-suites-from-option
+file:64cdbfa0bd4ce6e8a59dceb5f92f7c3c58f653ca
+--suite Tests.Sample Test Suite
+--suite Tests.Test With Failure
