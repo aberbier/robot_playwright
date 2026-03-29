@@ -74,13 +74,22 @@ docker run --rm \
   pabot --processes 5 --outputdir output tests/
 ```
 
-### 5. Generate failed test markdown reports
+### 5. Run all tests in parallel (Pabot)
 
 ```bash
 docker run --rm \
   -v $(pwd):/app \
   robot-playwright \
-  python3 scripts/pipeline_post_automation_script.py
+  pabot --processes 5 --outputdir output tests/
+```
+
+Now you can re-run only failed tests and save the traces:
+
+```bash
+docker run --rm \
+  -v $(pwd):/app \
+  robot-playwright \
+  robot --outputdir output --rerunfailed output/output.xml --variable ENABLE_TRACE:True tests/
 ```
 
 ## Recommended End-to-End Flow

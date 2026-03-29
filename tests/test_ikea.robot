@@ -7,12 +7,7 @@ Suite Teardown    Teardown Global Browser
 Test Setup        Start UI Test
 Test Teardown     Finish UI Test
 
-*** Variables ***
-${USERNAME}    practice
-${PASSWORD}    SuperSecretPassword!
-
 *** Test Cases ***
-Test That Fails Intentionally
-    [Documentation]    This test intentionally fails to demonstrate error reporting.
-    Open Application
-    Click    internal:role=button[name="NonExistentButton"i]
+Ikea Testing
+    [Documentation]    Navigates through IKEA site links and verifies Products button is visible.
+    Navigate IKEA To Products
