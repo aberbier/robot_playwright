@@ -3,6 +3,8 @@
 Parse Robot Framework output.xml and generate markdown reports for failed test cases.
 This script extracts test metadata, execution steps, and error messages to create
 bug-friendly documentation.
+
+Cleanup unnecessary files from output/ to clean after report generation.
 """
 
 import re

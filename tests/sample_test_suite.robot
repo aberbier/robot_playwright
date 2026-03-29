@@ -17,3 +17,7 @@ Login With Valid Credentials
     Open Application
     Log In To Application    ${USERNAME}    ${PASSWORD}
     Fail
+
+Wikipedia Random Article Flow
+    [Documentation]    Navigates from Wikipedia home to English, opens a random article, and verifies Search button visibility.
+    Navigate Wikipedia To Random Article
