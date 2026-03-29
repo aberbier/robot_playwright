@@ -187,7 +187,7 @@ def generate_markdown(test_data, output_dir, url_base):
 To reproduce this test locally and generate a trace file for debugging, run:
 
 ```bash
-robot --outputdir output -v ENABLE_TRACE:True -t "{test_data['name']}" tests/
+docker run --rm -v $(pwd):/app robot-playwright robot --outputdir output -v ENABLE_TRACE:True -t "{test_data['name']}" tests/
 ```
 
 Trace file location:
@@ -195,7 +195,7 @@ Trace file location:
 `output/traces/{sanitized_name}.zip`
 
 ---
-*Report generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} by Test Automation*
+*Report generated on {datetime.now().strftime('%d-%m-%Y %H:%M:%S')} by Test Automation*
 """
 
     # Write markdown file
