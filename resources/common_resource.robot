@@ -1,16 +1,19 @@
-*** Settings ***
-Library    Browser         auto_closing_level=MANUAL    tracing_group_mode=Browser
-Library    String
-Library    OperatingSystem
 
 *** Variables ***
-${URL_BASE}         https://practice.expandtesting.com/login
-${BROWSER}          chromium
-${HEADLESS}         True
-${ENABLE_TRACE}     False
-${TRACE_DIR}        ${OUTPUT DIR}/traces
+${URL_BASE}                     https://practice.expandtesting.com/login
+${BROWSER}                      chromium
+${HEADLESS}                     True
+${ENABLE_TRACE}                 False
+${TRACE_DIR}                    ${OUTPUT DIR}/traces
 @{POPUP_HANDLERS}
 ...                 test       automation
+
+*** Settings ***
+Library    Browser
+...    auto_closing_level=MANUAL
+...    tracing_group_mode=Browser
+Library    String
+Library    OperatingSystem
 
 *** Keywords ***
 Setup Global Browser
