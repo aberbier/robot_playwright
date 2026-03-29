@@ -13,14 +13,53 @@ Ikea Testing
 
 ```
 
-Remove the following step and related elements making sure you only remove elements that are not used
+import re
+from playwright.sync_api import Playwright, sync_playwright, expect
 
-Click Newsroom Link
 
-Rename the following step and related elements:
+def run(playwright: Playwright) -> None:
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page.goto("https://www.ikea.com/")
+    page.get_by_role("link", name="Stories").click()
+    page.get_by_role("region", name="Cookie banner").click()
+    page.get_by_role("link", name="Newsroom").click()
+    page.get_by_role("region", name="Cookie banner").click()
+    page.get_by_role("link", name="Our business").click()
+    expect(page.get_by_role("button", name="Products", exact=True)).to_be_visible()
+    page.get_by_role("button", name="Products", exact=True).click()
+    page.get_by_role("button", name="Rooms", exact=True).click()
+    page.get_by_role("button", name="Bargains").click()
+    page.get_by_role("button", name="Design").click()
+    page.get_by_role("button", name="Services").click()
+    page.get_by_role("button", name="Products", exact=True).click()
+    page.get_by_role("tab", name="New", exact=True).click()
+    page.get_by_role("tab", name="Baby & children's products").click()
+    page.get_by_role("tab", name="Cooking & Eating").click()
+    page.get_by_role("tab", name="Cabinets").click()
+    page.get_by_role("link", name="Hall furniture").click()
+    page.get_by_role("button", name="Bargains").click()
+    page.get_by_role("button", name="Services").click()
+    page.get_by_label("Services", exact=True).get_by_role("link", name="Maintenance & repair").click()
+    page.get_by_role("button", name="Design").click()
+    page.get_by_role("link", name="Schedule your kitchen").click()
+    page.get_by_role("button", name="Rooms").click()
+    page.get_by_role("link", name="Bedroom").click()
+    page.get_by_role("button", name="Products").click()
+    page.get_by_label("IKEA & you").get_by_role("link", name="IKEA stores").click()
+    page.get_by_role("button", name="Products").click()
+    page.get_by_role("button", name="Bargains").click()
+    page.get_by_role("button", name="Design").click()
+    page.get_by_role("button", name="Design").click()
+    page.get_by_role("button", name="Products").click()
+    expect(page.get_by_role("button", name="Bargains")).to_be_visible()
 
-Current Value: Close Cookie Banner
-New Value: Dismiss Cookies
+    # ---------------------
+    context.close()
+    browser.close()
 
+
+with sync_playwright() as playwright:
+    run(playwright)
 
 ```
